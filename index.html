@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>HTML and CSS educational materials</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
+      @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+      body {
+        font-family: 'Dongle', sans-serif;
+        font-size: 2em;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-image: linear-gradient(to bottom right, red, orange, yellow, green, blue, indigo, purple);
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .instructions {
+        text-align: center;
+        margin-bottom: 1px;
+      }
+
+      .leaf {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-size: cover;
+        animation: falling-leaf 5s linear infinite;
+      }
+
+      .leaf1 { background-image: url("bono.png"); top: -50px; left: 35%; animation-delay: 3s; }
+      .leaf2 { background-image: url("bono.png"); top: -100px; left: 40%; animation-delay: 0s; }
+      .leaf3 { background-image: url("bono.png"); top: -150px; left: 60%; animation-delay: 4s; }
+      .leaf4 { background-image: url("bono.png"); top: -150px; left: 65%; animation-delay: 1.5s; }
+      .leaf5 { background-image: url("bono.png"); top: -150px; left: 70%; animation-delay: 9s; }
+      .leaf6 { background-image: url("bono.png"); top: -150px; left: 50%; animation-delay: 2s; }
+      .leaf7 { background-image: url("bono.png"); top: -150px; left: 30%; animation-delay: 6s; }
+      .leaf8 { background-image: url("bono.png"); top: -150px; left: 10%; animation-delay: 9.5s; }
+      .leaf9 { background-image: url("bono.png"); top: -150px; left: 5%; animation-delay: 2.5s; }
+      .leaf10 { background-image: url("bono.png"); top: -150px; left: 80%; animation-delay: 6.5s; }
+      .leaf11 { background-image: url("bono.png"); top: -150px; left: 95%; animation-delay: 2.5s; }
+
+      @keyframes falling-leaf {
+        0% {
+          transform: translateY(-50px);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(1000px);
+          opacity: 0;
+        }
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      .face {
+        width: 200px;
+        height: 200px;
+        background-image: url('god.jpg');
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        border: 2px solid gray;
+      }
+
+      .social-icons {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+      }
+
+      .social-icons a {
+        font-size: 2em;
+        color: grey;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .social-icons a:hover {
+        animation: rainbow 1.5s infinite;
+        color: transparent; 
+        background-clip: text; 
+      }
+
+      @keyframes rainbow {
+        0% { color: red; }
+        14% { color: orange; }
+        28% { color: yellow; }
+        42% { color: green; }
+        57% { color: blue; }
+        71% { color: indigo; }
+        85% { color: violet; }
+        100% { color: red; }
+      }
+
+    </style>
+  </head>
+  <body>
+    <audio class = "bgm" scr="videoplayback.mp3" preload="auto" autoplay style="display: none;"></audio>
+
+    <div class="face"></div>
+    <div class="instructions">
+      <h1>안동연 (An Dongyeon)</h1>
+      <h3>인포팀에서 최약체를 담당하고 있습니다. 풀스택 개발자를 목표로 노력하고 있습니다.</h3>
+      <h3>I'm very weak. I want to be a full-stack.</h3>
+    </div>
+
+    <div class="social-icons" >
+      <a onclick="window.open('./Insta.html','page1','width=200 height=600 left=100 resizable=no')">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a  onclick="window.open('./Github.html','page2','width=200 height=600 left=100 resizable=no')">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+
+    <div class="leaf leaf1"></div>
+    <div class="leaf leaf2"></div>
+    <div class="leaf leaf3"></div>
+    <div class="leaf leaf4"></div>
+    <div class="leaf leaf5"></div>
+    <div class="leaf leaf6"></div>
+    <div class="leaf leaf7"></div>
+    <div class="leaf leaf8"></div>
+    <div class="leaf leaf9"></div>
+    <div class="leaf leaf10"></div>
+    <div class="leaf leaf11"></div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Easter</title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta charset="UTF-8" />
+    <script src="LocalConnection.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      var first = new LocalConnection({
+                  name: 'first',
+                  debug: true
+      });
+
+      first.listen();
+
+      first.addCallback('firstScreen', function (R1, L1, T1, B1) {
+
+        var R2 = window.screenLeft + window.outerWidth;
+        var L2 = window.screenLeft;
+        var T2 = window.screenTop + window.outerHeight - window.innerHeight;
+        var B2 = window.screenTop + window.outerHeight;
+        console.log(T1, T2, L1, R2);
+        if (Math.abs([T1 - T2]) < 30 && Math.abs([L1 - R2]) < 30) {
+          var second = new LocalConnection({
+                      name: 'second',
+                      debug: true
+          });
+          this.edge = function () {
+            window.close();
+            window.open('https://www.notion.so/infoteam-rulrudino/HTML-CSS-198365ea27df80119a99f6be0c98b11b');
+            var lock = 0;
+            second.send('Open', lock);
+            setTimeout(this.edge, 20);
+            
+          }
+          setTimeout(this.edge, 20);
+        }
+
+        else {
+          var second = new LocalConnection({
+                      name: 'second',
+                      debug: true
+          });
+          this.edge = function () {
+            $('.box').attr('style', 'background-image: url("./n.png");');
+            var lock = 1;
+            second.send('Open', lock);
+            setTimeout(this.edge, 20);
+          }
+          setTimeout(this.edge, 20);
+        }
+
+      });
+
+      window.setTimeout('window.location.reload()', 10000);
+    </script>
+
+  </head>
+
+    <style>
+
+	html,
+	body {
+		-ms-overflow-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	::-webkit-scrollbar {
+		display: none;
+	}
+
+	div {
+		background-size: cover;
+		width: 450px !important;
+		height: 900px !important;
+		float: left;
+		position: relative;
+	}
+  </style>
+
+  <body onresize="resizeTo(450,900)" onload="resizeTo(450,900)">
+  	<div class="box" style="background-image: url('./n.png');"></div>
+  </body>
+</html>

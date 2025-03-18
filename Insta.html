@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Egg</title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta charset="UTF-8" />
+    <script src="LocalConnection.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      window.onload = function() {
+        window.resizeTo(1280, 800);
+      };
+
+      function getVertex () {
+        console.log("getVertex!")
+        var first = new LocalConnection({
+					name: 'first',
+					debug: true
+		});
+        this.edge = function () {
+					var R1 = window.screenLeft + window.outerWidth;
+					var L1 = window.screenLeft;
+					var T1 = window.screenTop + window.outerHeight - window.innerHeight;
+					var B1 = window.screenTop + window.outerHeight;
+                    console.log("send")
+					first.send('firstScreen', R1, L1, T1, B1);
+
+		}
+		setTimeout(this.edge, 20);
+      }
+
+      function init() {
+			setInterval(getVertex, 1000);
+	  }
+
+	  init();
+
+	  var second = new LocalConnection({
+                  name: 'second',
+                  debug: true
+      });
+
+	  second.listen();
+
+	  second.addCallback('Open', function (lock) {
+	    if (lock == 1) {
+	      $('.box').attr('style', 'background-image: url("./o.png");');
+	    }
+	    else if (lock == 0) {
+	      window.close()
+        }
+	  });
+
+	  window.setTimeout('window.location.reload()', 13000);
+    </script>
+
+  </head>
+
+  <style>
+
+	html,
+	body {
+		-ms-overflow-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+
+	::-webkit-scrollbar {
+		display: none;
+	}
+
+	div {
+		background-size: cover;
+		width: 550px !important;
+		height: 900px !important;
+		float: left;
+		position: relative;
+	}
+  </style>
+
+  <body onresize="resizeTo(550,900)" onload="resizeTo(550,900)">
+  	<div class="box" style="background-image: url('./o.png');"></div>
+  </body>
+</html>
